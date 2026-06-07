@@ -1,0 +1,4 @@
+.weather-stat:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}

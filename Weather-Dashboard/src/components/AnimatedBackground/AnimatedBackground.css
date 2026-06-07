@@ -1,0 +1,8 @@
+.animated-bg {
+  position: fixed;
+  inset: 0;
+
+  background: linear-gradient(135deg, #0f172a, #2563eb, #3b82f6);
+
+  z-index: -1;
+}

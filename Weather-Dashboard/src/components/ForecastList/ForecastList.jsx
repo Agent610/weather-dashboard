@@ -1,4 +1,5 @@
 import "./ForecastList.css";
+import { motion } from "framer-motion";
 
 function ForecastList() {
   const forecast = [
@@ -10,7 +11,11 @@ function ForecastList() {
   ];
 
   return (
-    <div className="forecast-list">
+    <motion.div
+      className="forecast-list"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+    >
       {forecast.map((item, index) => (
         <div className="forecast-card" key={index}>
           <h3>{item.day}</h3>
@@ -18,7 +23,7 @@ function ForecastList() {
           <p>{item.temp}</p>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
