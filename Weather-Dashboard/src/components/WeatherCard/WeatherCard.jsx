@@ -1,5 +1,6 @@
 import "./WeatherCard.css";
 import { motion } from "framer-motion";
+import { WiDaySunny } from "react-icons/wi";
 
 function WeatherCard({ cityName, temperature, condition }) {
   return (
