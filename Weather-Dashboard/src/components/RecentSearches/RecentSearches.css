@@ -1,0 +1,29 @@
+.recent-searches {
+  margin-top: 25px;
+}
+
+.recent-searches h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.search-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-chip {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search-chip:hover {
+  transform: translateY(-2px);
+}
