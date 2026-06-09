@@ -63,20 +63,24 @@ function Home() {
         {!loading && !error && (
           <>
             <WeatherCard
-              cityName={weather.location}
-              temperature={`${convertTemp(weather.temperature, unit)}°${unit}`}
-              condition={weather.condition}
+              cityName={weather?.location}
+              temperature={
+                weather
+                  ? `${convertTemp(weather.temperature, unit)}°${unit}`
+                  : "--"
+              }
+              // condition={weather?.condition}
             />
 
             <WeatherStats
-              humidity={weather.stats.humidity}
-              wind={weather.stats.wind}
-              feelsLike={weather.stats.feelsLike}
-              uv={weather.stats.uv}
-              visibility={weather.stats.visibility}
+              humidity={weather?.stats?.humidity}
+              wind={weather?.stats?.wind}
+              feelsLike={weather?.stats?.feelsLike}
+              uv={weather?.stats.uv}
+              visibility={weather?.stats.visibility}
             />
 
-            <ForecastList forecast={weather.forecast} />
+            <ForecastList forecast={weather?.forecast} />
 
             {recentSearches.length > 0 && (
               <RecentSearches

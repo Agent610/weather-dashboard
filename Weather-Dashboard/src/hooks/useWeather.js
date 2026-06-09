@@ -1,26 +1,43 @@
 import { useState } from "react";
-
-import mockWeather from "../data/mockWeather";
+import { getWeather } from "../services/weatherAPI";
 
 function useWeather() {
-  const [weather, setWeather] = useState(mockWeather);
-
+  const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const [error, setError] = useState("");
 
   const searchWeather = async (city) => {
     setLoading(true);
-
     setError("");
 
+    console.log("Searching city:", city);
+
     try {
-      setWeather({
-        ...mockWeather,
-        location: city,
-      });
+      const data = await getWeather(city);
+      console.log("API response:", data);
+
+      const formatted = {
+        location: data.location.name,
+        temperature: data.current.temp_f,
+        condition: data.current.condition.text,
+
+        stats: {
+          humidity: data.current.humidity,
+          wind: data.current.wind_mph,
+          feelsLike: data.current.feelslike_f,
+          uv: data.current.uv,
+          visibility: data.current.vis_miles,
+        },
+
+        forecast: data.forecast.forecastday.map((day) => ({
+          day: day.date,
+          temp: day.day.avgtemp_f,
+        })),
+      };
+
+      setWeather(formatted);
     } catch (err) {
-      setError("Unable to fetch weather.");
+      setError(err.message || "Unable to fetch weather.");
     } finally {
       setLoading(false);
     }
