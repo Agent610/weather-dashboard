@@ -18,7 +18,7 @@ function Home() {
 
   const { weather, loading, error, searchWeather } = useWeather();
 
-  const [RecentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -78,9 +78,9 @@ function Home() {
 
             <ForecastList forecast={weather.forecast} />
 
-            {RecentSearches.length > 0 && (
+            {recentSearches.length > 0 && (
               <RecentSearches
-                searches={RecentSearches}
+                searches={recentSearches}
                 onSearch={handleRecentSearch}
               />
             )}
