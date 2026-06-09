@@ -9,6 +9,7 @@ import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 import BackgroundAnimation from "../components/BackgroundAnimation/BackgroundAnimation";
 import useWeather from "../hooks/useWeather";
+import { convertTemp } from "../utils/convertTemp";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -16,6 +17,8 @@ function Home() {
   const [unit, setUnit] = useState("F");
 
   const { weather, loading, error, searchWeather } = useWeather();
+
+  const [RecentSearches, setRecentSearches] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -25,6 +28,23 @@ function Home() {
     }
 
     searchWeather(city);
+
+    setRecentSearches((prev) => {
+      const updated = [
+        city,
+        ...prev.filter((item) => item.toLowerCase() !== city.toLowerCase()),
+      ];
+
+      return updated.slice(0, 5);
+    });
+
+    setCity("");
+  };
+
+  const handleRecentSearch = (selectedCity) => {
+    setCity(selectedCity);
+
+    searchWeather(selectedCity);
   };
 
   return (
@@ -44,7 +64,7 @@ function Home() {
           <>
             <WeatherCard
               cityName={weather.location}
-              temperature={`${weather.temperature}°${unit}`}
+              temperature={`${convertTemp(weather.temperature, unit)}°${unit}`}
               condition={weather.condition}
             />
 
@@ -58,9 +78,12 @@ function Home() {
 
             <ForecastList forecast={weather.forecast} />
 
-            <RecentSearches
-              searches={["New York", "London", "Tokyo", "Paris"]}
-            />
+            {RecentSearches.length > 0 && (
+              <RecentSearches
+                searches={RecentSearches}
+                onSearch={handleRecentSearch}
+              />
+            )}
           </>
         )}
       </div>

@@ -1,0 +1,26 @@
+.unit-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.unit-toggle button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.unit-toggle button:hover {
+  transform: translateY(-2px);
+}
+
+.unit-toggle button.active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}

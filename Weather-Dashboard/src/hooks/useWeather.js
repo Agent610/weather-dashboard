@@ -15,9 +15,10 @@ function useWeather() {
     setError("");
 
     try {
-      // API call later
-
-      setWeather(mockWeather);
+      setWeather({
+        ...mockWeather,
+        location: city,
+      });
     } catch (err) {
       setError("Unable to fetch weather.");
     } finally {
