@@ -9,6 +9,7 @@ function useWeather() {
     stats: {},
     forecast: [],
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -16,29 +17,25 @@ function useWeather() {
     setLoading(true);
     setError("");
 
-    console.log("Searching city:", city);
-
     try {
       const data = await getWeather(city);
+
       console.log("API response:", data);
 
       const formatted = {
-        location: data.location.name,
-        temperature: data.current.temp_f,
-        condition: data.current.condition.text,
+        location: data.name,
+        temperature: data.main.temp,
+        condition: data.weather[0].main,
 
         stats: {
-          humidity: data.current.humidity,
-          wind: data.current.wind_mph,
-          feelsLike: data.current.feelslike_f,
-          uv: data.current.uv,
-          visibility: data.current.vis_miles,
+          humidity: data.main.humidity,
+          wind: data.wind.speed,
+          feelsLike: data.main.feels_like,
+          uv: "N/A",
+          visibility: data.visibility / 1000, // meters → km
         },
 
-        forecast: data.forecast.forecastday.map((day) => ({
-          day: day.date,
-          temp: day.day.avgtemp_f,
-        })),
+        forecast: [],
       };
 
       setWeather(formatted);

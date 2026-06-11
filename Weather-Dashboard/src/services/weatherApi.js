@@ -1,8 +1,9 @@
-const BASE_URL = "https://openweathermap.org/";
+const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
+
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 export const getWeather = async (city) => {
-  const url = `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`;
+  const url = `${BASE_URL}?q=${city}&appid=${API_KEY}&units=imperial`;
 
   console.log("Request URL:", url);
 
