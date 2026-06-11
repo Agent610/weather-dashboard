@@ -2,7 +2,13 @@ import { useState } from "react";
 import { getWeather } from "../services/weatherAPI";
 
 function useWeather() {
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState({
+    location: "Search a city",
+    temperature: 0,
+    condition: "—",
+    stats: {},
+    forecast: [],
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 

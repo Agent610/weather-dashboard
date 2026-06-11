@@ -1,20 +1,18 @@
-const BASE_URL = "https://api.weatherapi.com/v1";
+const BASE_URL = "https://openweathermap.org/";
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 export const getWeather = async (city) => {
-  try {
-    const res = await fetch(
-      `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`,
-    );
+  const url = `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=no&alerts=no`;
 
-    if (!res.ok) {
-      throw new Error("City not found");
-    }
+  console.log("Request URL:", url);
 
-    const data = await res.json();
+  const res = await fetch(url);
 
-    return data;
-  } catch (error) {
-    throw error;
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error("API Error:", errorText);
+    throw new Error("Failed to fetch weather");
   }
+
+  return await res.json();
 };
