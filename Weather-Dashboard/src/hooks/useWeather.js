@@ -23,6 +23,16 @@ function useWeather() {
       console.log("API response:", data);
 
       const formatted = {
+        day: new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+        }),
+
+        date: new Date().toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }),
+        
         location: data.name,
         temperature: data.main.temp,
         condition: data.weather[0].main,

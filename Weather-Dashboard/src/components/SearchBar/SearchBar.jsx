@@ -1,17 +1,25 @@
 import "./SearchBar.css";
-//import { FaSearch } from "react-icons/fa";
+import { FaMagnifyingGlass, FaLocationDot } from "react-icons/fa6";
 
 function SearchBar({ city, setCity, onSearch }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearch(e);
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <input value={city} onChange={(e) => setCity(e.target.value)} />
+    <form className="search-bar" onSubmit={onSearch}>
+      <div className="search-input-container">
+        <FaLocationDot className="search-location-icon" />
 
-      <button type="submit">Search</button>
+        <input
+          type="text"
+          value={city}
+          placeholder="Search for a (City, State)"
+          onChange={(e) => setCity(e.target.value)}
+          aria-label="Search for a city and state"
+        />
+
+        <button type="submit">
+          <FaMagnifyingGlass />
+          <span>Search</span>
+        </button>
+      </div>
     </form>
   );
 }

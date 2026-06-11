@@ -49,7 +49,7 @@ function Home() {
 
   return (
     <>
-      <BackgroundAnimation />
+      <BackgroundAnimation condition={weather.condition} />
 
       <div className="weather-container">
         <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
@@ -63,13 +63,11 @@ function Home() {
         {!loading && !error && (
           <>
             <WeatherCard
-              cityName={weather?.location}
-              temperature={
-                weather
-                  ? `${convertTemp(weather.temperature, unit)}°${unit}`
-                  : "--"
-              }
-              // condition={weather?.condition}
+              day={weather.day}
+              date={weather.date}
+              cityName={weather.location}
+              temperature={`${convertTemp(weather.temperature, unit)}°${unit}`}
+              condition={weather.condition}
             />
 
             <WeatherStats

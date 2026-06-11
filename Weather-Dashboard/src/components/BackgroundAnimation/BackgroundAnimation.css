@@ -5,6 +5,49 @@
   background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
   background-size: 300% 300%;
   animation: gradientShift 12s ease infinite;
+  transition: background 1s ease;
+}
+
+/* Sunny */
+.background-animation.sunny {
+  background: linear-gradient(135deg, #56ccf2, #f2c94c);
+
+  animation: sunnyGlow 8s ease infinite alternate;
+}
+
+/* Cloudy */
+.background-animation.cloudy {
+  background: linear-gradient(135deg, #757f9a, #d7dde8);
+}
+
+/* Rainy */
+.background-animation.rainy {
+  background: linear-gradient(135deg, #314755, #26a0da);
+}
+
+/* Snowy */
+.background-animation.snowy {
+  background: linear-gradient(135deg, #e6dada, #274046);
+}
+
+/* Stormy */
+.background-animation.stormy {
+  background: linear-gradient(135deg, #232526, #414345);
+}
+
+/* Default */
+.background-animation.default {
+  background: linear-gradient(135deg, #4b79a1, #283e51);
+}
+
+@keyframes sunnyGlow {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.15);
+  }
 }
 
 @keyframes gradientShift {

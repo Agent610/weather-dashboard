@@ -1,19 +1,29 @@
 import "./WeatherCard.css";
-import { motion } from "framer-motion";
-import { WiDaySunny } from "react-icons/wi";
 
-function WeatherCard({ cityName, temperature, condition }) {
+function WeatherCard({ day, date, cityName, temperature, condition }) {
+  const weatherIcons = {
+    Clear: "☀️",
+    Clouds: "☁️",
+    Rain: "🌧️",
+    Snow: "❄️",
+    Thunderstorm: "⛈️",
+    Drizzle: "🌦️",
+    Mist: "🌫️",
+  };
   return (
-    <motion.div
-      className="weather-card"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div className="weather-card">
+      <p className="weather-day">
+        {day} • {date}
+      </p>
+
       <h2>{cityName}</h2>
+
+      <p className="weather-condition">
+        {weatherIcons[condition] || "🌍"} {condition}
+      </p>
+
       <h1>{temperature}</h1>
-      <p>{condition}</p>
-    </motion.div>
+    </div>
   );
 }
 
