@@ -55,8 +55,10 @@ OpenWeather https://openweathermap.org/
 - Dark/light mode
 - Hourly forecast charts
 - Saved favorite cities
-- Weather animations
-- Unit conversion (F/C)
+
+## Live-Link
+
+https://weather-dashboard-5qp4.vercel.app/
 
 ## Author
 
