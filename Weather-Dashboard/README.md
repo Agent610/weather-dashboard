@@ -34,15 +34,16 @@ Install the dependencies
 
 ## API
 
-WeatherAPI https://www.weatherapi.com/
+OpenWeather https://openweathermap.org/
 
 ## Project Structure
 
 - src ->
-  components -> BackgroundAnimation, ForecastList, Loader, SearchBar, WeatherCard
+  components -> AnimatedBackground, BackgroundAnimation, ErrorMessage, ForecastCard, ForecastList, Loader, RecentSearches, SearchBar, UnitToggle, WeatherCard, WeatherStats
   hooks -> useWeather.js
   pages -> Home.jsx
-  services -> weatherApi.js
+  services -> weatherApi.js, weatherService.js
+  utils -> convertTemp.js, formatDate.js, localStorage.js, weatherThemes.js
   App.jsx
   index.css
   main.jsx
