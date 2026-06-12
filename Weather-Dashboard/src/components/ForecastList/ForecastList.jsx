@@ -1,6 +1,6 @@
 import "./ForecastList.css";
 import { motion } from "framer-motion";
-import ForecastCard from "../ForecastCard/ForecastCard";
+import ForecastCard from "../ForecastCard/ForecastCard.jsx";
 
 function ForecastList({ forecast = [] }) {
   return (

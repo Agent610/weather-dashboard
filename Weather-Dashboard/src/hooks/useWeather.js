@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getWeather } from "../services/weatherAPI";
+import { getWeather } from "../services/weatherApi.js";
 
 function useWeather() {
   const [weather, setWeather] = useState({
@@ -32,7 +32,7 @@ function useWeather() {
           day: "numeric",
           year: "numeric",
         }),
-        
+
         location: data.name,
         temperature: data.main.temp,
         condition: data.weather[0].main,

@@ -1,4 +1,3 @@
-//const searches = ["New York", "London", "Tokyo", "Paris"];
 import "./RecentSearches.css";
 
 function RecentSearches({ searches, onSearch }) {

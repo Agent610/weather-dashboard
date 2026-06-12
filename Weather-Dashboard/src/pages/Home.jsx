@@ -1,15 +1,15 @@
 import { useState } from "react";
-import SearchBar from "../components/SearchBar/SearchBar";
-import WeatherCard from "../components/WeatherCard/WeatherCard";
-import WeatherStats from "../components/WeatherStats/WeatherStats";
-import ForecastList from "../components/ForecastList/ForecastList";
-import RecentSearches from "../components/RecentSearches/RecentSearches";
-import UnitToggle from "../components/UnitToggle/UnitToggle";
-import Loader from "../components/Loader/Loader";
-import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
-import BackgroundAnimation from "../components/BackgroundAnimation/BackgroundAnimation";
-import useWeather from "../hooks/useWeather";
-import { convertTemp } from "../utils/convertTemp";
+import SearchBar from "../components/SearchBar/SearchBar.jsx";
+import WeatherCard from "../components/WeatherCard/WeatherCard.jsx";
+import WeatherStats from "../components/WeatherStats/WeatherStats.jsx";
+import ForecastList from "../components/ForecastList/ForecastList.jsx";
+import RecentSearches from "../components/RecentSearches/RecentSearches.jsx";
+import UnitToggle from "../components/UnitToggle/UnitToggle.jsx";
+import Loader from "../components/Loader/Loader.jsx";
+import ErrorMessage from "../components/ErrorMessage/ErrorMessage.jsx";
+import BackgroundAnimation from "../components/BackgroundAnimation/BackgroundAnimation.jsx";
+import useWeather from "../hooks/useWeather.js";
+import { convertTemp } from "../utils/convertTemp.js";
 
 function Home() {
   const [city, setCity] = useState("");
