@@ -36,16 +36,16 @@ function useWeather() {
           year: "numeric",
         }),
 
-        location: data.name,
-        temperature: data.main.temp,
-        condition: data.weather[0].main,
+        location: currentData.name,
+        temperature: currentData.main.temp,
+        condition: currentData.weather[0].main,
 
         stats: {
-          humidity: data.main.humidity,
-          wind: data.wind.speed,
-          feelsLike: data.main.feels_like,
+          humidity: currentData.main.humidity,
+          wind: currentData.wind.speed,
+          feelsLike: currentData.main.feels_like,
           uv: "N/A",
-          visibility: data.visibility / 1000, // meters → km
+          visibility: currentData.visibility / 1000, // meters → km
         },
 
         hourlyForecast: forecastData.list.slice(0, 8).map((hour) => ({
