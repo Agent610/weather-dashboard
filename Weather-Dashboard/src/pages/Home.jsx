@@ -10,6 +10,7 @@ import ErrorMessage from "../components/ErrorMessage/ErrorMessage.jsx";
 import BackgroundAnimation from "../components/BackgroundAnimation/BackgroundAnimation.jsx";
 import useWeather from "../hooks/useWeather.js";
 import { convertTemp } from "../utils/convertTemp.js";
+import HourlyForecast from "../components/HourlyForecast/HourlyForecast.jsx";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -69,6 +70,8 @@ function Home() {
               temperature={`${convertTemp(weather.temperature, unit)}°${unit}`}
               condition={weather.condition}
             />
+
+            <HourlyForecast hourlyData={weather?.hourlyForecast || []} />
 
             <WeatherStats
               humidity={weather?.stats?.humidity}

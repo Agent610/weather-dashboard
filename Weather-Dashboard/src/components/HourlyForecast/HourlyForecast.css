@@ -1,0 +1,71 @@
+.hourly-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hour-card {
+  min-width: 90px;
+  padding: 1 rem;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+
+.hour-card:hover {
+  transform: translateY(-4px);
+}
+
+/*Tablet*/
+@media (max-width: 768px) {
+  .hourly-forecast {
+    padding: 1rem;
+  }
+
+  .hourly-scroll {
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .hour-card {
+    min-width: 75px;
+    padding: 0.75rem;
+  }
+
+  .hour-card p {
+    font-size: 0.85rem;
+  }
+
+  .hour-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hour-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 480px) {
+  .hour-card {
+    min-width: 70px;
+    padding: 0.6rem;
+  }
+
+  .hour-card img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hour-card h3 {
+    font-size: 0.95rem;
+  }
+}

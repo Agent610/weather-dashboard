@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getWeather } from "../services/weatherApi.js";
+import { getWeather, getForecast } from "../services/weatherApi.js";
 
 function useWeather() {
   const [weather, setWeather] = useState({
@@ -7,6 +7,7 @@ function useWeather() {
     temperature: 0,
     condition: "—",
     stats: {},
+    hourlyForecast: [],
     forecast: [],
   });
 
@@ -18,9 +19,11 @@ function useWeather() {
     setError("");
 
     try {
-      const data = await getWeather(city);
+      const currentData = await getWeather(city);
+      const forecastData = await getForecast(city);
 
-      console.log("API response:", data);
+      console.log("Current:", currentData);
+      console.log("Forecast:", forecastData);
 
       const formatted = {
         day: new Date().toLocaleDateString("en-US", {
@@ -45,6 +48,14 @@ function useWeather() {
           visibility: data.visibility / 1000, // meters → km
         },
 
+        hourlyForecast: forecastData.list.slice(0, 8).map((hour) => ({
+          time: new Date(hour.dt * 1000).toLocaleTimeString([], {
+            hour: "numeric",
+          }),
+          temp: Math.round(hour.main.temp),
+          icon: hour.weather[0].icon,
+          condition: hour.weather[0].main,
+        })),
         forecast: [],
       };
 

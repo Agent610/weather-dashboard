@@ -8,7 +8,7 @@
   border-radius: 20px;
   margin-bottom: 20px;
   width: 100%;
-  margin-left: 80px;
+  margin-left: 220px;
 }
 
 .search-bar input {
@@ -80,4 +80,21 @@
 .search-location-icon {
   font-size: 1.2rem;
   color: white;
+}
+
+/*Mobile*/
+
+@media screen and (max-width: 320px) {
+  .search-bar {
+    margin-left: 20px;
+  }
+
+  .search-input-container {
+    height: 55px;
+  }
+
+  .search-input-container button {
+    gap: 5px;
+    margin-left: -20px;
+  }
 }
