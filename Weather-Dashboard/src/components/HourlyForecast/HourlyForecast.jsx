@@ -11,7 +11,7 @@ function HourlyForecast({ hourlyData }) {
             <p>{hour.time}</p>
 
             <img
-              src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}.png`}
+              src={`https://openweathermap.org/img/wn/${hour.icon}.png`}
               alt={hour.condition}
             />
 
