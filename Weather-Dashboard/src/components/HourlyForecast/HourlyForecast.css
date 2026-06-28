@@ -1,3 +1,7 @@
+.hourly-forecast {
+  text-align: center;
+}
+
 .hourly-scroll {
   display: flex;
   overflow-x: auto;
